@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Scan your Rubik's Cube with your webcam and get an optimal solution instantly. Pure browser-based solver — no server needed." />
+  <title>Rubik's Cube Solver</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script type="module" crossorigin src="/RubiksCubeSolver/assets/index-C1hLBvS1.js"></script>
+  <link rel="modulepreload" crossorigin href="/RubiksCubeSolver/assets/rolldown-runtime-Bh1tDfsg.js">
+  <link rel="modulepreload" crossorigin href="/RubiksCubeSolver/assets/solver-Dm2-ljID.js">
+  <link rel="stylesheet" crossorigin href="/RubiksCubeSolver/assets/index-CwSQLMPF.css">
+</head>
+
+<body>
+  <!-- Vanta.js Background -->
+  <div id="vanta-bg"
+    style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -1; pointer-events: none;"></div>
+
+  <div id="root"></div>
+
+  <!-- Vanta.js scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanta@0.5.24/dist/vanta.waves.min.js"></script>
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      if (window.VANTA) {
+        window.VANTA.WAVES({
+          el: "#vanta-bg",
+          mouseControls: false,
+          touchControls: false,
+          gyroControls: false,
+          minHeight: 200.00,
+          minWidth: 200.00,
+          scale: 1.00,
+          scaleMobile: 1.00,
+          color: 0x0,
+          shininess: 26.00,
+          waveHeight: 14.50,
+          waveSpeed: 0.90,
+          zoom: 0.1
+        });
+      }
+    });
+  </script>
+
+</body>
+
+</html>
