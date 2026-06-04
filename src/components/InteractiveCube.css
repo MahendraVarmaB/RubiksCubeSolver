@@ -1,0 +1,71 @@
+/* ═══════════════════════════════════════════════════════════════════════════════
+   InteractiveCube.css
+   3D CSS Rubik's Cube
+   ═══════════════════════════════════════════════════════════════════════════════ */
+
+.cube-scene {
+  width: 320px;
+  height: 320px;
+  perspective: 1000px;
+  margin: var(--space-xl) auto;
+  cursor: grab;
+  /* Prevent text selection while dragging */
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.cube-scene:active {
+  cursor: grabbing;
+}
+
+.cube {
+  width: 240px;
+  height: 240px;
+  position: relative;
+  /* Center the cube inside the scene */
+  left: 50%;
+  top: 50%;
+  margin-left: -120px;
+  margin-top: -120px;
+  transform-style: preserve-3d;
+  transition: transform 0.05s linear;
+}
+
+.cube-face {
+  position: absolute;
+  width: 240px;
+  height: 240px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 3px;
+  background-color: #111; /* inner black plastic color */
+  border: 3px solid #111;
+  border-radius: 4px;
+}
+
+/* Face transforms (d = 120px half width) */
+.cube-face--F { transform: translateZ(120px); }
+.cube-face--B { transform: rotateY(180deg) translateZ(120px); }
+.cube-face--R { transform: rotateY(90deg) translateZ(120px); }
+.cube-face--L { transform: rotateY(-90deg) translateZ(120px); }
+.cube-face--U { transform: rotateX(90deg) translateZ(120px); }
+.cube-face--D { transform: rotateX(-90deg) translateZ(120px); }
+
+/* Individual facelets */
+.cube-facelet {
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: filter 0.1s;
+}
+
+.cube-facelet:hover {
+  filter: brightness(1.2);
+}
+
+.cube-facelet:active {
+  filter: brightness(0.8);
+}

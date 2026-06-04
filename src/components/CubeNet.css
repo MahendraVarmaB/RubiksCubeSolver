@@ -1,0 +1,104 @@
+/* ═══════════════════════════════════════════════════════════════════════════════
+   CubeNet.css
+   2D unfolded cube net for scan progress display
+   ═══════════════════════════════════════════════════════════════════════════════ */
+
+.cube-net {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: var(--space-md) var(--space-lg);
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(12px);
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.net-row {
+  display: flex;
+  gap: 2px;
+}
+
+/* ── Individual face cell ────────────────────────────────────────────────────── */
+
+.net-face {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  border-radius: 6px;
+  border: 2px solid rgba(255, 255, 255, 0.10);
+  overflow: hidden;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.net-spacer {
+  width: 60px;
+  height: 60px;
+  visibility: hidden;
+}
+
+/* Active (currently scanning) face */
+.net-face--active {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.35), 0 0 12px rgba(99, 102, 241, 0.2);
+  animation: pulse-border 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse-border {
+  0%, 100% { box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.35), 0 0 12px rgba(99, 102, 241, 0.2); }
+  50%       { box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.6),  0 0 20px rgba(99, 102, 241, 0.4); }
+}
+
+/* Scanned face */
+.net-face--scanned {
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+/* Face label */
+.net-face__label {
+  position: absolute;
+  top: 2px;
+  left: 4px;
+  font-size: 8px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.5);
+  z-index: 2;
+  line-height: 1;
+  pointer-events: none;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.8);
+}
+
+/* 3×3 mini grid inside each face */
+.net-face__grid {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 1px;
+  padding: 1px;
+  box-sizing: border-box;
+}
+
+.net-face__cell {
+  border-radius: 1px;
+  background: rgba(255, 255, 255, 0.04);
+  transition: background-color 0.3s ease;
+}
+
+/* ✓ badge on completed faces */
+.net-face__done {
+  position: absolute;
+  bottom: 2px;
+  right: 3px;
+  font-size: 9px;
+  color: #4ade80;
+  font-weight: 700;
+  z-index: 2;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.9);
+  pointer-events: none;
+}

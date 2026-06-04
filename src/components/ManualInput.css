@@ -1,0 +1,201 @@
+/* ═══════════════════════════════════════════════════════════════════════════════
+   ManualInput.css
+   ═══════════════════════════════════════════════════════════════════════════════ */
+
+.manual-input {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+  width: 100%;
+  max-width: 720px;
+}
+
+.manual-header {
+  padding: 0 var(--space-md);
+}
+
+.color-palette {
+  padding: var(--space-md);
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.palette-grid {
+  display: flex;
+  gap: var(--space-md);
+}
+
+.palette-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  cursor: pointer;
+  transition: transform 0.2s, border-color 0.2s;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+
+.palette-btn:hover {
+  transform: scale(1.1);
+}
+
+.palette-btn.active {
+  border-color: #fff;
+  transform: scale(1.15);
+  box-shadow: 0 0 12px rgba(255,255,255,0.4);
+}
+
+.manual-controls {
+  display: flex;
+  gap: var(--space-md);
+  margin-top: var(--space-sm);
+}
+
+.manual-errors {
+  margin-top: var(--space-sm);
+  text-align: center;
+  background: rgba(231, 76, 60, 0.1);
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(231, 76, 60, 0.3);
+}
+
+.text-danger {
+  color: var(--danger);
+  margin: 4px 0;
+}
+
+.text-sm {
+  font-size: 0.9rem;
+}
+
+/* ── Color count summary ─────────────────────────────────────────────────── */
+.color-counts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-xs, 6px) var(--space-md);
+  padding: var(--space-sm) var(--space-md);
+  background: var(--bg-card);
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(255,255,255,0.06);
+  width: 100%;
+  max-width: 360px;
+}
+
+.count-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.82rem;
+}
+
+.count-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+.count-label {
+  flex: 1;
+  color: var(--text-secondary);
+}
+
+.count-value {
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.count-item--ok .count-value {
+  color: #4ade80;
+}
+
+.count-item--bad .count-value {
+  color: var(--danger, #ef4444);
+}
+
+/* ── State tools (export / import) ──────────────────────────────────────── */
+.state-tools {
+  width: 100%;
+  max-width: 420px;
+  padding: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.state-tools__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  padding-bottom: var(--space-sm);
+}
+
+.state-tools__title {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.state-tools__row {
+  display: flex;
+  gap: var(--space-sm);
+  align-items: stretch;
+}
+
+.state-tools__input {
+  flex: 1;
+  background: rgba(0,0,0,0.2);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  font-size: 0.85rem;
+  color: var(--text-primary);
+  outline: none;
+  font-family: 'Inter', monospace;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.state-tools__input:focus {
+  border-color: var(--accent);
+  background: rgba(0,0,0,0.3);
+  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
+}
+
+.state-tools__input::placeholder {
+  color: rgba(255,255,255,0.3);
+}
+
+.btn-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 16px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  transition: all 0.2s ease;
+}
+
+.state-tools__msg {
+  font-size: 0.8rem;
+  color: var(--success);
+  display: flex;
+  align-items: center;
+}
